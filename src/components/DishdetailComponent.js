@@ -55,8 +55,8 @@ class DishDetail extends Component {
      console.log(dish.comments);
      const commentList = dish.comments.map((comm) => {
        return(
-         <div className="container">
-           <ul key={comm.id} className="list-unstyled">
+         <div key={comm.id} className="container">
+           <ul  className="list-unstyled">
             <li className="row">
               <p> {comm.comment} <br />
                 -- {comm.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comm.date)))}
@@ -85,14 +85,16 @@ class DishDetail extends Component {
   render() {
 
     return (
-      <div className="row">
-        <div className="col-12 col-md-5 m-1">
-          {this.renderDish(this.props.selectedDish)}
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-md-5 m-1">
+            {this.renderDish(this.props.selectedDish)}
+          </div>
+          <div className="col-12 col-md-5 m-1">
+            {this.renderNewComments(this.props.selectedDish)}
+          </div>
+          {/*this.renderComments(dishComments)*/}
         </div>
-        <div className="col-12 col-md-5 m-1">
-          {this.renderNewComments(this.props.selectedDish)}
-        </div>
-        {/*this.renderComments(dishComments)*/}
       </div>
     );
   }
