@@ -29,6 +29,21 @@ class CommentForm extends Component {
 
   handleSubmit(values) {
     this.toggleModal();
+    //  So that is the effect of the change that you have made to your
+      //application. So, when you submit the comment, you'll see that
+      //the submission of the comment will trigger action to be sent
+      //to your redux store, and then this action will result in the
+      //comment being added into the comments part of the state of your
+      //redux store, and then when the changes, then that will result
+      //in the store emitting a change, and that will result in your
+      //main component going and getting the updated state from the redux
+      //store, and then the main component passes the new state to all
+      //the chilled components, and then when you come down the RenderComments
+      // component realizes that the comments part has changed,
+      //so it will have to be rendered. So, react takes care of re rendering
+      //that with new the comment added into the list there. So, now you see
+      //how an action can trigger a change in the redux store and that immediately
+      // gets reflected back into our react applications view there.
     this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
   }
 
