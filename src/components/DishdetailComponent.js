@@ -36,7 +36,7 @@ class CommentForm extends Component {
     return (
       <div >
         <Button outline onClick={this.toggleModal}>
-          <span className="fa fa-sign-in fa-lg"></span>Submit Comment</Button>
+          <span className="fa fa-pensil fa-lg"></span>Submit Comment</Button>
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
           <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
           <ModalBody className="row row-content">
@@ -50,7 +50,6 @@ class CommentForm extends Component {
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
-                    <option>6</option>
                   </Control.select>
                 </Col>
               </Row>
