@@ -45,7 +45,7 @@ class CommentForm extends Component {
       //that with new the comment added into the list there. So, now you see
       //how an action can trigger a change in the redux store and that immediately
       // gets reflected back into our react applications view there.
-    this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
   }
 
   render() {
@@ -125,7 +125,7 @@ class CommentForm extends Component {
       );
   }
 
- function RenderComments({comments, addComment, dishId}) {
+ function RenderComments({comments, postComment, dishId}) {
 
     if (comments != null) {
       const commentList = comments.map((comm) => {
@@ -147,7 +147,7 @@ class CommentForm extends Component {
         <div>
           <h4>Comments</h4>
           {commentList}
-          <CommentForm dishId={dishId} addComment={addComment} />
+          <CommentForm dishId={dishId} postComment={postComment} />
         </div>
       );
     }
@@ -193,7 +193,7 @@ class CommentForm extends Component {
            </div>
            <div className="col-12 col-md-5 m-1">
              <RenderComments comments = {props.comments}
-                addComment={props.addComment}
+                postComment={props.postComment}
                 dishId={props.dish.id} />
            </div>
          </div>
